@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASL Word Guess</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- External libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+</head>
+<body>
+
+  <!-- ---- Header ---- -->
+  <header>
+    <div class="logo">ASL<span>GUESS</span></div>
+    <div id="score-display">
+      score: <b id="score">0</b> &nbsp;|&nbsp; round: <b id="round">1</b>
+    </div>
+  </header>
+
+  <!-- ---- Main layout ---- -->
+  <main>
+
+    <!-- LEFT: game -->
+    <div class="game-panel">
+
+      <div class="hint-box">
+        <div class="hint-label">Hint</div>
+        <div id="hint-text">Loading...</div>
+      </div>
+
+      <div id="word-slots"></div>
+
+      <div id="message"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-accent"  id="btn-next">Next word</button>
+        <button class="btn btn-outline" id="btn-skip">Skip</button>
+      </div>
+
+      <div id="no-model-warn">
+         ยังไม่พบโมเดล วางไฟล์ <b>model.json</b> และ <b>weights.bin</b>
+        ในโฟลเดอร์ <code>web/model/</code> แล้ว reload หน้าเว็บ
+      </div>
+
+    </div>
+
+    <!-- RIGHT: camera -->
+    <div class="camera-panel">
+
+      <div class="cam-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="overlay-canvas"></canvas>
+      </div>
+
+      <div class="predict-box">
+        <div>
+          <div class="predict-label">Detected letter</div>
+          <div class="hold-hint" style="margin-top:6px">Hold still to confirm</div>
+        </div>
+        <div>
+          <div id="pred-letter">—</div>
+          <div id="pred-conf"></div>
+        </div>
+      </div>
+
+      <div class="hold-bar-wrap">
+        <div id="hold-bar"></div>
+      </div>
+
+      <div class="status-row">
+        <div class="dot" id="cam-dot"></div> Camera &nbsp;
+        <div class="dot" id="mp-dot"></div>  MediaPipe &nbsp;
+        <div class="dot" id="nn-dot"></div>  Model
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Scripts (โหลดหลัง DOM พร้อม) -->
+  <script src="words.js"></script>
+  <script src="game_forlearning.js"></script>
+
+</body>
+</html>

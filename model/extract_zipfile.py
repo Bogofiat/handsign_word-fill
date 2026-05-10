@@ -37,4 +37,4 @@ def fast_extract_zip(zip_file_path, extract_to_dir, max_workers=8):
 # ตัวอย่างการเรียกใช้งาน (ปรับ max_workers ให้เท่ากับจำนวน Logical Cores ของ CPU คุณ)
 # fast_extract_zip(zip_file_path="./dataset.zip", extract_to_dir="./extracted_data", max_workers=8)
 
-fast_extract_zip(zip_file_path="C:\\Users\\asus\\Downloads\\archive (17).zip", extract_to_dir="C:\\Users\\asus\\Downloads\\FingerHint", max_workers=8)
+fast_extract_zip(zip_file_path="C:\\Users\\asus\\Downloads\\Space_zer2\\American Sign Language Image Dataset (figerspellin\\American Sign Language Image Dataset (figerspelling original + keypoints + evaluation).zip", extract_to_dir="C:\\Users\\asus\\Downloads\\Space_zer2", max_workers=8)

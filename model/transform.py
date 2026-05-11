@@ -7,7 +7,7 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from tqdm import tqdm 
 
-root_dir = "C:\\Users\\asus\\Downloads\\FingerHint\\dataset5"
+root_dir = "C:\\Users\\asus\\Downloads\\FingerHint\\dataset5_backup"
 found_label = set()
 batch = sorted([i for i in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir,i))])
 
@@ -62,9 +62,7 @@ for partial_batch in batch:
                     coordinate.extend([lm.x, lm.y, lm.z])
                 feature_vector[:63] = np.array(coordinate)
 
-                # แก้เป็น img_path จะได้มี Path เต็มไปส่องหาไฟล์ Depth
-
-                        # บันทึกข้อมูลเฉพาะตอนที่โหลดไฟล์ Depth ได้สำเร็จจริงๆ
+                
                 all_x.append(feature_vector)
                 all_y.append(current_label)              
 

@@ -1,7 +1,7 @@
 // ================================================================
 //  CONFIG
 // ================================================================
-const MODEL_PATH     = "./Models/model_more_data_1.json";   // ← path สัมพัทธ์ ใช้ได้ใน browser
+const MODEL_PATH     = "./Models/model_newone_r.json";   // ← path สัมพัทธ์ ใช้ได้ใน browser
 const HOLD_FRAMES    = 20;   // frame ที่ต้องถือค้างก่อน confirm
 const CONF_THRESHOLD = 0.7;  // confidence ขั้นต่ำ
 

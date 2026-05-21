@@ -40,5 +40,5 @@ history = model.fit(X_train, y_train,
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
 print(f'\nTest accuracy: {test_acc:.4f}')
 
-model.save("finger_hint_model_new_more_data.h5")
-print("โมเดลถูกบันทึกเรียบร้อยแล้วที่ finger_hint_model.h5")
+model.save("finger_hint_model_newone_data.keras")
+print("โมเดลถูกบันทึกเรียบร้อยแล้วที่ finger_hint_model_newone_data.keras")

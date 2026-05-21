@@ -1,9 +1,9 @@
-#ไฟล์นี้ใช้สำหรับ นำข้อมูลของ asl_alphabet มาเสริมกับ dataset ดังเดิม
+#ไฟล์นี้ใช้สำหรับ นำข้อมูลของ asl_alphabet มาเสริมกับ dataset ดังเดิม และลบไฟล์Depthออก
 import os 
 import shutil
 import numpy as np 
 from tqdm import tqdm
-
+import glob
 
 def split_dataset(start,destination,target_dirs=("A","B","C","D","E"),seed=42):
     rng = np.random.default_rng(seed)
@@ -36,6 +36,15 @@ def split_dataset(start,destination,target_dirs=("A","B","C","D","E"),seed=42):
 source = r"C:\Users\asus\Downloads\Space_zer\asl_alphabet_train\asl_alphabet_train"
 target = r"C:\Users\asus\Downloads\FingerHint\dataset5_backup"
 
-split_dataset(source, target)
+#split_dataset(source, target)
 
+def remove_depth_files(path,folder_names={'A','B','C','D','E'}):
+    for fd in os.listdir(path):
+        if fd not in folder_names:
+            continue
+        fd_path = os.path.join(path,fd)
+        files = glob.glob(os.path.join(fd_path,"**","*Depth*"),recursive=True)
+        for f in tqdm(files, desc=f"กำลังลบไฟล์ Depth ในโฟลเดอร์ {fd}"):
+            os.remove(f)
 
+#remove_depth_files(r"C:\Users\asus\Downloads\FingerHint\dataset5_backup")

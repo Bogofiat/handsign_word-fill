@@ -54,11 +54,11 @@ for partial_batch in batch:
             results = hands.detect(mp_rgb)
             
             if results.hand_landmarks: 
-                feature_vector = np.zeros(63) 
+                feature_vector = np.zeros(63)  
                 hand_lms = results.hand_landmarks[0] 
                 
                 coordinate = []
-                for lm in hand_lms:
+                for lm in hand_lms: #hand_lms มี 21 จุด แต่ละจุดมี x,y,z รวมเป็น 63 ค่า
                     coordinate.extend([lm.x, lm.y, lm.z])
                 feature_vector[:63] = np.array(coordinate)
 

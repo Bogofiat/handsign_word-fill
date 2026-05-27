@@ -1,2 +1,5 @@
 dataset5/
 dataset5_backup/
+numpy__dataset/X_features_CNN.npy
+numpy__dataset/classes_CNN.npy
+numpy__dataset/y_labels_CNN.npy

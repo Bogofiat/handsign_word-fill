@@ -16,7 +16,8 @@ print(y.shape)
 print(Class.shape)
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.25, random_state=42, stratify=y_train_val)
 
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(128, activation='relu', input_shape=(63,)),
@@ -25,7 +26,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(32, activation='relu'),
     tf.keras.layers.Dense(24, activation='softmax') # 
-])
+]) #MLP mutil layer perceptron
 
 
 model.compile(optimizer='adam',
@@ -35,10 +36,10 @@ model.compile(optimizer='adam',
 history = model.fit(X_train, y_train,
                     epochs=15,          
                     batch_size=32,      
-                    validation_data=(X_test, y_test))
+                    validation_data=(X_val, y_val))
 
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
 print(f'\nTest accuracy: {test_acc:.4f}')
 
-model.save("finger_hint_model_new.h5")
-print("โมเดลถูกบันทึกเรียบร้อยแล้วที่ finger_hint_model.h5")
+#model.save("finger_hint_model_newone_data.keras")
+print("โมเดลถูกบันทึกเรียบร้อยแล้วที่ finger_hint_model_newone_data.keras")

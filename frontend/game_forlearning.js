@@ -255,7 +255,7 @@ document.getElementById("btn-next").onclick = () => {
 };
 document.getElementById("btn-skip").onclick = () => {
   roundNum++;
-  msgEl.textContent = `Skipped — the word was "${curWord}"`;
+  msgEl.textContent = `the word was "${curWord}"`;
   msgEl.className   = "lose";
   gameActive = false;
 };

@@ -130,7 +130,7 @@ main {
   letter-spacing: 0.5px;
 }
 #message.win  { color: var(--accent2); }
-#message.lose { color: var(--warn); }
+#message.lose { color: #38bdf8; }
 
 /* ---- buttons ---- */
 .btn {

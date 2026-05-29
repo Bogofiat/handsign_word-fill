@@ -38,7 +38,7 @@ for partial_batch in batch:
             continue
         current_label = labels_todict[label]
         
-        # ใส่ tqdm ตรงนี้! จะได้เห็นหลอดโหลดวิ่งทุกรูป พร้อมบอกด้วยว่าทำ Batch ไหน Label อะไรอยู่
+        # ใส่ tqdm ตรงนี้ จะได้เห็นหลอดโหลดวิ่งทุกรูป พร้อมบอกด้วยว่าทำ Batch ไหน Label อะไรอยู่
         for img_file in tqdm(os.listdir(img_dir), desc=f"Batch {partial_batch} | Label {label}"):
             if not img_file.endswith((".png",".jpg",".jpeg")):
                 continue
@@ -49,7 +49,6 @@ for partial_batch in batch:
                 continue    
                 
             img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
-            h, w, _ = img_rgb.shape
             mp_rgb = mp.Image(image_format=mp.ImageFormat.SRGB, data=img_rgb)
             results = hands.detect(mp_rgb)
             
